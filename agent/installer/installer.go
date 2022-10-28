@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/go-logr/logr"
-	"github.com/vmware-tanzu/cluster-api-provider-bringyourownhost/agent/installer/internal/algo"
+	"github.com/Prabhjot-Sethi/cluster-api-provider-bringyourownhost/agent/installer/internal/algo"
 )
 
 // Error string wrapper for errors returned by the installer
