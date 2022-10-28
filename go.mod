@@ -1,8 +1,11 @@
-module github.com/vmware-tanzu/cluster-api-provider-bringyourownhost
+module github.com/Prabhjot-Sethi/cluster-api-provider-bringyourownhost
 
 go 1.17
 
-replace sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.1.3
+replace (
+	github.com/vmware-tanzu/cluster-api-provider-bringyourownhost => ./
+	sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.1.3
+)
 
 require (
 	github.com/cppforlife/go-cli-ui v0.0.0-20200716203538-1e47f820817f
@@ -17,6 +20,7 @@ require (
 	github.com/onsi/gomega v1.19.0
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/pflag v1.0.5
+	github.com/vmware-tanzu/cluster-api-provider-bringyourownhost v0.0.0-00010101000000-000000000000
 	k8s.io/api v0.23.0
 	k8s.io/apimachinery v0.23.0
 	k8s.io/client-go v0.23.0

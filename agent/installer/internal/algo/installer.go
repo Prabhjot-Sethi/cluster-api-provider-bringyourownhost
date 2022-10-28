@@ -134,7 +134,7 @@ func (b *BaseK8sInstaller) getSteps(bki *BaseK8sInstaller) []Step {
 
 	var steps = []Step{
 		b.swapStep(bki),
-		b.firewallStep(bki),
+		//b.firewallStep(bki),
 		b.kernelModsLoadStep(bki),
 		b.osWideCfgUpdateStep(bki),
 		b.criToolsStep(bki),
