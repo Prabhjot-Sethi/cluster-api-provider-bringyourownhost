@@ -138,7 +138,7 @@ func (b *BaseK8sInstaller) getSteps(bki *BaseK8sInstaller) []Step {
 		b.kernelModsLoadStep(bki),
 		b.osWideCfgUpdateStep(bki),
 		b.criToolsStep(bki),
-		b.criKubernetesStep(bki),
+		//b.criKubernetesStep(bki),
 		b.containerdStep(bki),
 		b.containerdDaemonStep(bki),
 		b.kubeletStep(bki),
