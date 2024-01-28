@@ -92,6 +92,7 @@ func getSupportedRegistry(ob algo.OutputBuilder) registry {
 
 		// Match concrete os version to repository os version
 		reg.AddOsFilter("Ubuntu_20.04.*_x86-64", linuxDistro)
+		reg.AddOsFilter("Ubuntu_22.04.*_x86-64", linuxDistro)
 
 		/*
 		 * PLACEHOLDER - POINT MORE DISTRO VERSIONS
