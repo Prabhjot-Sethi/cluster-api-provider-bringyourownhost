@@ -4,6 +4,7 @@
 package algo
 
 import (
+	"fmt"
 	"bytes"
 	"os/exec"
 )
@@ -41,6 +42,7 @@ func (s *ShellStep) runStep(command string) error {
 		return nil
 	}
 
+	fmt.Println("executing--> ", command)
 	cmd.Stdout = &stdOut
 	cmd.Stderr = &stdErr
 	err := cmd.Run()
@@ -62,10 +64,12 @@ func (s *ShellStep) runStep(command string) error {
 			cannot be executed due to erroneous shell command, etc.
 		*/
 		s.OutputBuilder.Err(stdErr.String())
+		fmt.Println("error string--> ", stdErr.String())
 	}
 
 	if err != nil {
 		s.OutputBuilder.Err(err.Error())
+		fmt.Println("error--> ", err.Error())
 		return err
 	}
 
