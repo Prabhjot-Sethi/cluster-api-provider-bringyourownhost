@@ -86,7 +86,9 @@ func (u *Ubuntu20_4K8s1_22) containerdStep(bki *BaseK8sInstaller) Step {
 	cmdRmFilesOnly := " | grep -e '[^/]$' | xargs rm -f"
 
 	doCmd := fmt.Sprintf("tar -C / -xvf '%s'", containerdAbsPath)
-	doCmd += " && if [ ! -e /etc/containerd/config.toml ]; then mkdir -p /etc/containerd && echo -e \"version = 2\\n[plugins]\\n  [plugins.\\\"io.containerd.grpc.v1.cri\\\".containerd.runtimes.runc]\\n    runtime_type = \\\"io.containerd.runc.v2\\\"\\n    [plugins.\\\"io.containerd.grpc.v1.cri\\\".containerd.runtimes.runc.options]\\n      SystemdCgroup = true\" > /etc/containerd/config.toml && chmod 755 /etc/containerd/ && chmod 644 /etc/containerd/config.toml; fi"
+	doCmd += " && if [ ! -e /etc/containerd/config.toml ]; then mkdir -p /etc/containerd && "
+	doCmd += GetConfigTomlEchoString()
+	doCmd += " > /etc/containerd/config.toml && chmod 755 /etc/containerd/ && chmod 644 /etc/containerd/config.toml; fi"
 	undoCmd := cmdRmDirs + cmdListTar + cmdConcatPathSlash + cmdRmFilesOnly
 
 	return &ShellStep{
